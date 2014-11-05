@@ -10,6 +10,23 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    // 1 PUT iOS API KEY HERE
+    let googleMapsApiKey = "AIzaSyB0bHO7jRepqM7JWEwNaR1Zn6Ae2zpc2jY"
+    
+    func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+        // 2
+        GMSServices.provideAPIKey(googleMapsApiKey)
+        return true
+    }
+}
+
+// Deleted with Google Maps code
+/*import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -42,5 +59,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
+} */
 
