@@ -16,6 +16,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
         //2
     let locationManager = CLLocationManager()
+    //delete for our locations
+    let dataProvider = GoogleDataProvider()
+    
+    var mapRadius: Double {
+        get {
+            let region = mapView.projection.visibleRegion()
+            let center = mapView.camera.target
+            
+            let north = CLLocation(latitude: region.farLeft.latitude, longitude: center.longitude)
+            let south = CLLocation(latitude: region.nearLeft.latitude, longitude: center.longitude)
+            let west = CLLocation(latitude: center.latitude, longitude: region.farLeft.longitude)
+            let east = CLLocation(latitude: center.latitude, longitude: region.farRight.longitude)
+            
+            let verticalDistance = north.distanceFromLocation(south)
+            let horizontalDistance = west.distanceFromLocation(east)
+            return max(horizontalDistance, verticalDistance)*0.5
+        }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +65,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
             // 6 Ask for optimal startup zoom
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
             
-            // This tells the location manager to stop updating the users location, we dont need this
-            //locationManager.stopUpdatingLocation()
+            // This tells the location manager to stop updating the users location, **this may need to change**
+            locationManager.stopUpdatingLocation()
+            fetchNearbyPlaces(location.coordinate)
         }
     }
     
@@ -59,7 +78,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         let geocoder = GMSGeocoder()
         //Moves update location button up above bottom toolbar
         let labelHeight: CGFloat = 50
-        self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: labelHeight, right: 0)
+        self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: 110, right: 0)
         
         // 2
         geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
@@ -80,6 +99,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     //Call on this function when the map stops moving so you can make a reverse geocall
     func mapView(mapView: GMSMapView!, idleAtCameraPosition position: GMSCameraPosition!) {
         reverseGeocodeCoordinate(position.target)
+    }
+    
+    func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+        // 1
+        mapView.clear()
+        // 2
+        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:mapRadius, types: searchedTypes) { places in
+            for place: GooglePlace in places {
+                // 3
+                let marker = PlaceMarker(place: place)
+                // 4
+                marker.map = self.mapView
+            }
+        }
     }
     //@IBOutlet weak var mapView: GMSMapView!
     
