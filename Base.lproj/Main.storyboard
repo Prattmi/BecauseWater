@@ -2,19 +2,21 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S1d-Vy-4EM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="4Ix-Mf-brf">
             <objects>
                 <navigationController toolbarHidden="NO" id="S1d-Vy-4EM" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r9B-eA-mCK">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="r9B-eA-mCK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="tG8-Bg-Qe7">
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="tG8-Bg-Qe7">
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -28,9 +30,9 @@
         <!--Menu-->
         <scene sceneID="boH-4s-ZtI">
             <objects>
-                <tableViewController id="OGl-MP-llc" sceneMemberID="viewController">
+                <tableViewController id="OGl-MP-llc" customClass="MenuViewController" customModule="iOSBecauseWater" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eII-xf-nsR">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -55,7 +57,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Cqt-53-laD" kind="push" id="339-ba-dk7"/>
+                                            <segue destination="Cqt-53-laD" kind="show" id="339-ba-dk7"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FeK-hf-CBm">
@@ -76,14 +78,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FRo-GR-Wd9">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="FRo-GR-Wd9">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FRo-GR-Wd9" id="KFG-hw-1xR">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because Water Store" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InS-tn-2G9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Because Water Store" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InS-tn-2G9">
                                                     <rect key="frame" x="219" y="11" width="162" height="21"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" none="YES" button="YES" staticText="YES"/>
+                                                    </accessibility>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -94,33 +99,20 @@
                                                 <constraint firstItem="InS-tn-2G9" firstAttribute="centerY" secondItem="KFG-hw-1xR" secondAttribute="centerY" id="fUm-YO-tvf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" button="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <segue destination="6Oh-Kv-RgI" kind="show" id="btl-m0-CbS"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uak-Bm-mM3">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uak-Bm-mM3" id="dla-jJ-onW">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeZ-9D-ttb">
-                                                    <rect key="frame" x="257" y="11" width="87" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="NeZ-9D-ttb" firstAttribute="centerY" secondItem="dla-jJ-onW" secondAttribute="centerY" id="Bah-Sc-Hk3"/>
-                                                <constraint firstItem="NeZ-9D-ttb" firstAttribute="centerX" secondItem="dla-jJ-onW" secondAttribute="centerX" id="LUB-a5-MLy"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XwE-96-lfM">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="XwE-96-lfM">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XwE-96-lfM" id="JiZ-gh-Rpb">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0s-KF-1pk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0s-KF-1pk">
                                                     <rect key="frame" x="246" y="11" width="108" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -132,6 +124,9 @@
                                                 <constraint firstItem="H0s-KF-1pk" firstAttribute="centerY" secondItem="JiZ-gh-Rpb" secondAttribute="centerY" id="qdo-8S-Bbr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7bx-2O-Qbc" kind="show" id="nOD-C2-jZU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -149,7 +144,51 @@
             </objects>
             <point key="canvasLocation" x="1847" y="128"/>
         </scene>
-        <!--Drop In-->
+        <!--Because Water Store-->
+        <scene sceneID="tNI-ub-xA1">
+            <objects>
+                <viewController id="6Oh-Kv-RgI" customClass="StoreController" customModule="iOSBecauseWater" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wek-sY-4fW"/>
+                        <viewControllerLayoutGuide type="bottom" id="YOt-2y-DJR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fnx-H4-lXq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BecauseWaterGlass" translatesAutoresizingMaskIntoConstraints="NO" id="gL8-3o-0dh">
+                                <rect key="frame" x="200" y="104" width="200" height="380"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="380" id="fCW-z4-UHA"/>
+                                    <constraint firstAttribute="width" constant="200" id="gr0-tc-qYK"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUh-El-OEE">
+                                <rect key="frame" x="223" y="60" width="155" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Click to Purchase">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendToStore:" destination="6Oh-Kv-RgI" eventType="touchUpInside" id="zon-7y-BuN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wUh-El-OEE" firstAttribute="centerX" secondItem="gL8-3o-0dh" secondAttribute="centerX" id="9IU-x1-yhp"/>
+                            <constraint firstItem="gL8-3o-0dh" firstAttribute="centerX" secondItem="fnx-H4-lXq" secondAttribute="centerX" id="Det-94-Amc"/>
+                            <constraint firstItem="YOt-2y-DJR" firstAttribute="top" secondItem="gL8-3o-0dh" secondAttribute="bottom" constant="8" symbolic="YES" id="Sio-iA-0lj"/>
+                            <constraint firstItem="gL8-3o-0dh" firstAttribute="top" secondItem="wUh-El-OEE" secondAttribute="bottom" constant="8" symbolic="YES" id="x3j-vU-4C9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Because Water Store" id="9wU-2i-y9Q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lb8-Vm-WIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1847" y="1044"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="qFk-MQ-zbA">
             <objects>
                 <viewController id="DRx-Wl-Wum" customClass="ViewController" customModule="iOSBecauseWater" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,35 +197,124 @@
                         <viewControllerLayoutGuide type="bottom" id="3L9-Er-Axa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="76x-89-cPP">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fzV-SI-Atp" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzV-SI-Atp" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgB-Kr-S0m">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Water-Droplet" translatesAutoresizingMaskIntoConstraints="NO" id="K13-bp-pp6">
+                                        <rect key="frame" x="52" y="18" width="16" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="eko-DC-sVl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_144" translatesAutoresizingMaskIntoConstraints="NO" id="Rsn-6P-gqq">
+                                        <rect key="frame" x="287" y="16" width="26" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="Ma5-EC-2rC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="public_bubbler" translatesAutoresizingMaskIntoConstraints="NO" id="p0o-i8-qI8">
+                                        <rect key="frame" x="528" y="18" width="20" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="oat-7Z-Bcl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public Fountain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUY-UY-buw">
+                                        <rect key="frame" x="490" y="0.0" width="102" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="102" id="ucK-Om-epQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Submitted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVr-bu-dnk">
+                                        <rect key="frame" x="8" y="0.0" width="102" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="102" id="OhW-ZD-fjh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Business" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGv-Y9-y47">
+                                        <rect key="frame" x="253" y="0.0" width="94" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="94" id="vy3-BM-Esd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.73176328386849021" blue="0.39044480338246135" alpha="0.70999999999999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="tUY-UY-buw" firstAttribute="trailing" secondItem="tgB-Kr-S0m" secondAttribute="trailingMargin" id="1a9-JD-IH3"/>
+                                    <constraint firstItem="YVr-bu-dnk" firstAttribute="top" secondItem="tgB-Kr-S0m" secondAttribute="top" id="2Eb-PK-2Ay"/>
+                                    <constraint firstItem="YVr-bu-dnk" firstAttribute="leading" secondItem="tgB-Kr-S0m" secondAttribute="leadingMargin" id="GPi-Lb-Zwa"/>
+                                    <constraint firstItem="ZGv-Y9-y47" firstAttribute="centerY" secondItem="YVr-bu-dnk" secondAttribute="centerY" id="GVi-I8-7Vd"/>
+                                    <constraint firstItem="ZGv-Y9-y47" firstAttribute="firstBaseline" secondItem="YVr-bu-dnk" secondAttribute="firstBaseline" id="JaG-Iv-tUB"/>
+                                    <constraint firstAttribute="bottom" secondItem="tUY-UY-buw" secondAttribute="bottom" constant="27" id="KJt-Zh-dvL"/>
+                                    <constraint firstItem="Rsn-6P-gqq" firstAttribute="bottom" secondItem="K13-bp-pp6" secondAttribute="bottom" id="NEr-26-6BS"/>
+                                    <constraint firstItem="p0o-i8-qI8" firstAttribute="bottom" secondItem="tgB-Kr-S0m" secondAttribute="bottomMargin" id="NIq-mk-ZE1"/>
+                                    <constraint firstItem="Rsn-6P-gqq" firstAttribute="centerX" secondItem="ZGv-Y9-y47" secondAttribute="centerX" id="ONf-g1-V5e"/>
+                                    <constraint firstItem="p0o-i8-qI8" firstAttribute="top" secondItem="K13-bp-pp6" secondAttribute="top" id="PIS-JE-q09"/>
+                                    <constraint firstAttribute="bottom" secondItem="YVr-bu-dnk" secondAttribute="bottom" constant="28" id="Rc9-5a-a5S"/>
+                                    <constraint firstItem="Rsn-6P-gqq" firstAttribute="top" secondItem="tgB-Kr-S0m" secondAttribute="top" constant="16" id="VV9-UD-eEM"/>
+                                    <constraint firstItem="ZGv-Y9-y47" firstAttribute="centerX" secondItem="tgB-Kr-S0m" secondAttribute="centerX" id="eno-bV-Ieh"/>
+                                    <constraint firstItem="p0o-i8-qI8" firstAttribute="top" secondItem="tgB-Kr-S0m" secondAttribute="top" constant="18" id="hDB-01-qQt"/>
+                                    <constraint firstItem="ZGv-Y9-y47" firstAttribute="firstBaseline" secondItem="tUY-UY-buw" secondAttribute="firstBaseline" id="iNr-ly-ywb"/>
+                                    <constraint firstAttribute="trailing" secondItem="p0o-i8-qI8" secondAttribute="trailing" constant="52" id="p4z-rs-eTq"/>
+                                    <constraint firstItem="p0o-i8-qI8" firstAttribute="bottom" secondItem="Rsn-6P-gqq" secondAttribute="bottom" id="rEM-Cl-Bm2"/>
+                                    <constraint firstItem="K13-bp-pp6" firstAttribute="leading" secondItem="tgB-Kr-S0m" secondAttribute="leading" constant="52" id="xJb-la-NB1"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fzV-SI-Atp" firstAttribute="top" secondItem="GED-aA-0ik" secondAttribute="bottom" constant="-5" id="A6N-k2-zIY"/>
+                            <constraint firstItem="fzV-SI-Atp" firstAttribute="top" secondItem="76x-89-cPP" secondAttribute="top" id="0FS-bG-z9e"/>
+                            <constraint firstItem="tgB-Kr-S0m" firstAttribute="leading" secondItem="fzV-SI-Atp" secondAttribute="leading" id="0lt-9U-XWQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tgB-Kr-S0m" secondAttribute="trailing" constant="-16" id="9cS-Tm-oJW"/>
+                            <constraint firstItem="fzV-SI-Atp" firstAttribute="top" secondItem="GED-aA-0ik" secondAttribute="bottom" id="A6N-k2-zIY"/>
+                            <constraint firstItem="tgB-Kr-S0m" firstAttribute="trailing" secondItem="fzV-SI-Atp" secondAttribute="trailing" id="CEp-PD-Vdu"/>
+                            <constraint firstItem="tgB-Kr-S0m" firstAttribute="leading" secondItem="76x-89-cPP" secondAttribute="leadingMargin" constant="-16" id="Ddo-6W-gUJ"/>
                             <constraint firstAttribute="trailing" secondItem="fzV-SI-Atp" secondAttribute="trailing" id="KPQ-Ef-agA"/>
+                            <constraint firstItem="fzV-SI-Atp" firstAttribute="top" secondItem="tgB-Kr-S0m" secondAttribute="bottom" constant="-49" id="SKD-bM-iWp"/>
+                            <constraint firstItem="tgB-Kr-S0m" firstAttribute="top" secondItem="GED-aA-0ik" secondAttribute="bottom" id="ZwD-kA-1DO"/>
                             <constraint firstItem="fzV-SI-Atp" firstAttribute="leading" secondItem="76x-89-cPP" secondAttribute="leading" id="eIJ-t7-CS4"/>
-                            <constraint firstItem="fzV-SI-Atp" firstAttribute="bottom" secondItem="3L9-Er-Axa" secondAttribute="top" constant="108" id="v7Q-RF-8Ms"/>
+                            <constraint firstItem="fzV-SI-Atp" firstAttribute="bottom" secondItem="3L9-Er-Axa" secondAttribute="top" constant="44" id="v7Q-RF-8Ms"/>
                         </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="add" id="KXw-BD-Hf9">
                             <connections>
-                                <segue destination="1wN-Sl-xkp" kind="push" id="a56-it-zEs"/>
+                                <segue destination="1wN-Sl-xkp" kind="show" id="a56-it-zEs"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Drop In" id="4xt-AU-QgZ">
+                    <navigationItem key="navigationItem" id="4xt-AU-QgZ">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="Lss-cx-YqQ">
                             <connections>
-                                <segue destination="OGl-MP-llc" kind="push" id="DgI-Kz-ILI"/>
+                                <segue destination="OGl-MP-llc" kind="show" id="DgI-Kz-ILI"/>
                             </connections>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="5fx-hM-UHO">
+                            <rect key="frame" x="235" y="-3" width="131" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="d0W-ZH-2x2">
+                                    <rect key="frame" x="9" y="1" width="112" height="47"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -195,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFe-Ck-nS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="-222"/>
+            <point key="canvasLocation" x="1119" y="-155"/>
         </scene>
         <!--About your drop-->
         <scene sceneID="mQm-cA-aBi">
@@ -206,11 +334,11 @@
                         <viewControllerLayoutGuide type="bottom" id="XB9-R7-J4M"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mBl-sb-ESs">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZj-YI-3xz">
-                                <rect key="frame" x="195" y="238" width="211" height="30"/>
+                                <rect key="frame" x="195" y="174" width="211" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="HTq-xo-2KE"/>
                                     <constraint firstAttribute="width" constant="211" id="o7C-BW-I4A"/>
@@ -219,7 +347,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUF-FQ-IRJ">
-                                <rect key="frame" x="270" y="403" width="61" height="30"/>
+                                <rect key="frame" x="270" y="339" width="61" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="6nd-0n-h2a"/>
                                     <constraint firstAttribute="height" constant="30" id="AWP-OB-kbv"/>
@@ -229,14 +357,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="S1d-Vy-4EM" kind="modal" id="hhP-87-r4B"/>
+                                    <segue destination="S1d-Vy-4EM" kind="presentation" id="hhP-87-r4B"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHl-Xd-esC" customClass="GMSMapView">
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unG-UW-uNI">
-                                <rect key="frame" x="244" y="336" width="113" height="30"/>
+                                <rect key="frame" x="244" y="272" width="113" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="F12-C0-G16"/>
                                     <constraint firstAttribute="width" constant="113" id="SDc-EW-omV"/>
@@ -244,15 +372,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add a Picture"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Pv-BP-J1u" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="600" height="157"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Which floor is it located on etc." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1T4-AA-veP">
-                                <rect key="frame" x="114" y="298" width="372" height="30"/>
+                                <rect key="frame" x="114" y="234" width="372" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Pv-BP-J1u" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -289,11 +417,11 @@
                         <viewControllerLayoutGuide type="bottom" id="iL2-dq-zEg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6oE-wY-rAP">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bU3-Ql-ilV">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">     RISE UP out of the iron-grey surface of the ocean, seething         
      in the wind, towards the shore. Winter rain slices the air.         
@@ -337,69 +465,316 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nN-Lb-bcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2662" y="160"/>
+            <point key="canvasLocation" x="1119" y="1044"/>
+        </scene>
+        <!--Privacy Policy-->
+        <scene sceneID="zqE-3Y-kTA">
+            <objects>
+                <viewController title="Privacy Policy" id="7bx-2O-Qbc" sceneMemberID="viewController">
+                    <textView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" id="Nyr-Qy-adL">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Drop In PRIVACY POLICY ">
+                                <attributes>
+                                    <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="18" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+
+This privacy policy governs your use of the software application Drop In (“Application”) for mobile devices that was created by BeCause Water Benefit Corp. The Application is a community-driven geomapping app that helps people find, drink, and share water.  
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="What information does the Application obtain and how is it used?">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="User Provided Information ">
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+The Application obtains the information you provide when you download and register the Application. Registration with us is optional. However, please keep in mind that you may not be able to use some of the features offered by the Application unless you register with us.
+When you register with us and use the Application, you generally provide (a) your name, email address, age, username, password and other registration information; (b) transaction-related information, such as when you make purchases, respond to any offers, or download or use applications from us; (c) information you provide us when you contact us for help; (d) credit card information for purchase and use of the Application, and; (e) information you enter into our system when using the Application, such as contact information and project management information.
+We may also use the information you provided us to contact your from time to time to provide you with important information, required notices and marketing promotions.
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Automatically Collected Information ">
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+In addition, the Application may collect certain information automatically, including, but not limited to, the type of mobile device you use, your mobile devices unique device ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browsers you use, and information about the way you use the Application.  
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Does the Application collect precise real time location information of the device?">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+When you visit the mobile application, we may use GPS technology (or other similar technology) to determine your current location in order to determine the city you are located within and display a location map with relevant advertisements. We will not share your current location with other users or partners.
+
+If you do not want us to use your location for the purposes set forth above, you should turn off the location services for the mobile application located in your account settings or in your mobile phone settings and/or within the mobile application. 
+ </string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Do third parties see and/or have access to information obtained by the Application?">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+Yes. We will share your information with third parties only in the ways that are described in this privacy statement.
+We may disclose User Provided and Automatically Collected Information:
+1) as required by law, such as to comply with a subpoena, or similar legal process;
+2) when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;
+3) with our trusted services providers who work on our behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.
+4) if BeCause Water Benefit Corp is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Web site of any change in ownership or uses of this information, as well as any choices you may have regarding this information.
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="What are my opt-out rights?">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+You can stop all collection of information by the Application easily by uninstalling the Application. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network. You can also request to opt-out via email, at info@becausewater.com. 
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Data Retention Policy, Managing Your Information">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+We will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. We will retain Automatically Collected information for up to 24 months and thereafter may store it in aggregate. If you’d like us to delete User Provided Data that you have provided via the Application, please contact us at info@becausewater.com  and we will respond in a reasonable time. Please note that some or all of the User Provided Data may be required in order for the Application to function properly.
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=" Children">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+We do not use the Application to knowingly solicit data from or market to children under the age of 13. If a parent or guardian becomes aware that his or her child has provided us with information without their consent, he or she should contact us at info@becausewater.com.  We will delete such information from our files within a reasonable time.
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=" Security">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+We are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches.
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=" Changes">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+This Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy on this page and informing you via mobile app and/or email. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.  
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Your Consent">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+By using the Application, you are consenting to our processing of your information as set forth in this Privacy Policy now and as amended by us. "Processing,” means using cookies on a computer/hand held device or using or touching information in any way, including, but not limited to, collecting, storing, deleting, using, combining and disclosing information, all of which activities will take place in the United States.  If you reside outside the United States your information will be transferred, processed and stored there under United States privacy standards. 
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Contact us">
+                                <attributes>
+                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <font key="NSOriginalFont" size="16" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">
+If you have any questions regarding privacy while using the Application, or have questions about our practices, please contact us via email at info@becausewater.com
+</string>
+                                <attributes>
+                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <navigationItem key="navigationItem" title="Privacy Policy" id="Ioq-RJ-AVM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3jb-BD-I8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2952" y="1044"/>
         </scene>
         <!--Add a Drop-->
         <scene sceneID="Nba-HA-vWX">
             <objects>
-                <viewController id="1wN-Sl-xkp" sceneMemberID="viewController">
+                <viewController id="1wN-Sl-xkp" customClass="InputController" customModule="iOSBecauseWater" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ODo-A2-uWW"/>
                         <viewControllerLayoutGuide type="bottom" id="DFC-JN-4dU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2qh-gC-9N8">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtl-QH-Ylj">
-                                <rect key="frame" x="273" y="292" width="55" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtl-QH-Ylj">
+                                <rect key="frame" x="273" y="253" width="55" height="30"/>
                                 <state key="normal" title="Confirm">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="L7e-8D-rKp" kind="push" id="u3J-QF-wvH"/>
+                                    <segue destination="L7e-8D-rKp" kind="show" id="u3J-QF-wvH"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter an Address Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5r3-kS-7dE">
-                                <rect key="frame" x="190" y="254" width="221" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5r3-kS-7dE">
+                                <rect key="frame" x="190" y="138" width="221" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="221" id="ZXu-94-bgs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dG-gV-z9b">
-                                <rect key="frame" x="288" y="189" width="25" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter an Address Here:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgG-tz-sED">
+                                <rect key="frame" x="211" y="109" width="178" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBl-Pd-KS0">
-                                <rect key="frame" x="242" y="119" width="116" height="30"/>
-                                <state key="normal" title="Use My Location">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5B4-Lh-QvT">
+                                <rect key="frame" x="258" y="164" width="85" height="30"/>
+                                <state key="normal" title="My Location">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="populateCurrentLocation:" destination="1wN-Sl-xkp" eventType="touchUpInside" id="TcT-az-eT5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5r3-kS-7dE" firstAttribute="top" secondItem="6dG-gV-z9b" secondAttribute="bottom" constant="44" id="05M-c5-2Ev"/>
-                            <constraint firstItem="5r3-kS-7dE" firstAttribute="centerX" secondItem="6dG-gV-z9b" secondAttribute="centerX" id="4t3-S9-Hxg"/>
+                            <constraint firstItem="5B4-Lh-QvT" firstAttribute="centerX" secondItem="5r3-kS-7dE" secondAttribute="centerX" id="37c-kg-D0z"/>
+                            <constraint firstItem="5B4-Lh-QvT" firstAttribute="top" secondItem="LgG-tz-sED" secondAttribute="bottom" constant="34" id="4qF-nn-7Kb"/>
+                            <constraint firstItem="5r3-kS-7dE" firstAttribute="top" secondItem="LgG-tz-sED" secondAttribute="bottom" constant="8" symbolic="YES" id="6RL-fs-o4e"/>
                             <constraint firstItem="Rtl-QH-Ylj" firstAttribute="centerX" secondItem="5r3-kS-7dE" secondAttribute="centerX" id="7wj-0M-TTc"/>
-                            <constraint firstItem="6dG-gV-z9b" firstAttribute="top" secondItem="PBl-Pd-KS0" secondAttribute="bottom" constant="40" id="EQ2-Lf-afI"/>
-                            <constraint firstItem="Rtl-QH-Ylj" firstAttribute="top" secondItem="5r3-kS-7dE" secondAttribute="bottom" constant="8" symbolic="YES" id="Hnk-Hc-jIp"/>
-                            <constraint firstItem="PBl-Pd-KS0" firstAttribute="centerX" secondItem="6dG-gV-z9b" secondAttribute="centerX" id="jn8-AY-rXX"/>
-                            <constraint firstItem="PBl-Pd-KS0" firstAttribute="top" secondItem="ODo-A2-uWW" secondAttribute="bottom" constant="119" id="jsD-dY-9XS"/>
-                            <constraint firstItem="PBl-Pd-KS0" firstAttribute="centerX" secondItem="2qh-gC-9N8" secondAttribute="centerX" id="ud9-fn-KrX"/>
+                            <constraint firstItem="5r3-kS-7dE" firstAttribute="top" secondItem="ODo-A2-uWW" secondAttribute="bottom" constant="138" id="Bcp-gP-Y3f"/>
+                            <constraint firstItem="Rtl-QH-Ylj" firstAttribute="top" secondItem="5r3-kS-7dE" secondAttribute="bottom" constant="85" id="Hnk-Hc-jIp"/>
+                            <constraint firstItem="Rtl-QH-Ylj" firstAttribute="centerX" secondItem="2qh-gC-9N8" secondAttribute="centerX" id="ReX-5R-WQU"/>
+                            <constraint firstItem="LgG-tz-sED" firstAttribute="centerX" secondItem="5r3-kS-7dE" secondAttribute="centerX" id="hRp-FO-ume"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Drop" id="ndc-dF-EdG">
                         <barButtonItem key="backBarButtonItem" title="Address" id="SI7-oI-dO2"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressToInput" destination="5r3-kS-7dE" id="csL-Zk-DXx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0f-OH-a8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1847" y="-558"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BecauseWaterGlass" width="187" height="383"/>
+        <image name="Water-Droplet" width="1121" height="1920"/>
+        <image name="loading" width="320" height="146"/>
+        <image name="logo_144" width="144" height="144"/>
+        <image name="public_bubbler" width="104" height="104"/>
+    </resources>
 </document>

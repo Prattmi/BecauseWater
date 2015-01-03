@@ -18,6 +18,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     let locationManager = CLLocationManager()
     //delete for our locations
     let dataProvider = GoogleDataProvider()
+    //provides address to text field when adding a location
+    var myLocation:String = ""
     
     var mapRadius: Double {
         get {
@@ -78,23 +80,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         let geocoder = GMSGeocoder()
         //Moves update location button up above bottom toolbar
         let labelHeight: CGFloat = 50
-        self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: 110, right: 0)
+        self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: 50, right: 0)
         
         // 2
         geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
             if let address = response?.firstResult() {
                 
                 // 3
+                var allLines: String = ""
                 let lines = address.lines as [String]
-                /*self.addressLabel.text = join("\n", lines)
-                
+                for line in lines {
+                    allLines=allLines+line
+                }
+                self.myLocation = allLines
+                /*
                 // 4
                 UIView.animateWithDuration(0.25) {
                     self.view.layoutIfNeeded()
 */
-                }
+                
             }
         }
+
+    }
+    
+    func populateTextField ()->String {
+        return self.myLocation
+    }
+
     
     //Call on this function when the map stops moving so you can make a reverse geocall
     func mapView(mapView: GMSMapView!, idleAtCameraPosition position: GMSCameraPosition!) {
