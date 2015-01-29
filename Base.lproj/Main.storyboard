@@ -419,47 +419,7 @@
                     <view key="view" contentMode="scaleToFill" id="6oE-wY-rAP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bU3-Ql-ilV">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">     RISE UP out of the iron-grey surface of the ocean, seething         
-     in the wind, towards the shore. Winter rain slices the air.         
-     Ahead, the port of Toulon, home of the French navy. A forest        
-     of tall masted warships.                                            
-
-     The great ships heave at anchor, the wind whipping their            
-     rigging.                                                            
-
-     Through the sea spray we see the great ribs of warships             
-     under construction, and warships being refitted.                    
-
-     Storm-lashed sea and driving rain. A great wave rises up
-     and hammers down. As it recedes we see the figures of men
-     heaving on great ropes, the sea water streaming down over           
-     their faces. The harsh storm light catches glints of metal:
-     these men are CONVICTS, chained by manacles, heads shaved,          
-     wearing red shirts with prison numbers crudely stitched             
-     onto them.                                                          
-
-     Now we see that the ropes run up to a ship that is being            
-     hauled ashore - a storm-damaged man-of-war, its masts
-     broken, rising and falling on the surge.
-
-     As yet another great wave rolls over the convicts, we
-     follow the straining ropes down into the base of the                
-     slipway, and find the convict JEAN VALJEAN, up to his waist...</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bU3-Ql-ilV" secondAttribute="trailing" id="Cl4-W2-1Ni"/>
-                            <constraint firstItem="bU3-Ql-ilV" firstAttribute="bottom" secondItem="iL2-dq-zEg" secondAttribute="top" id="qqs-L4-t6R"/>
-                            <constraint firstItem="bU3-Ql-ilV" firstAttribute="top" secondItem="6oE-wY-rAP" secondAttribute="top" id="sL6-at-xdc"/>
-                            <constraint firstItem="bU3-Ql-ilV" firstAttribute="leading" secondItem="6oE-wY-rAP" secondAttribute="leading" id="xFo-si-YN4"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About Drop In" id="yPq-xY-APr"/>
                 </viewController>

@@ -2,8 +2,8 @@
 //  StoreController.swift
 //  iOSBecauseWater
 //
-//  Created by Michael Pratt on 12/17/14.
-//  Copyright (c) 2014 Michael Pratt. All rights reserved.
+//  Created by Global App Initiative on 12/17/14.
+//  Copyright (c) 2014 Global App Initiative. All rights reserved.
 //
 
 import Foundation

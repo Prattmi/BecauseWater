@@ -2,17 +2,17 @@
 //  DropMarker.swift
 //  iOSBecauseWater
 //
-//  Created by Michael Pratt on 12/1/14.
-//  Copyright (c) 2014 Michael Pratt. All rights reserved.
+//  Created by Global App Initiative on 12/1/14.
+//  Copyright (c) 2014 Global App Initiative. All rights reserved.
 //
 
 import Foundation
 
 class PlaceMarker: GMSMarker {
-    // 1
+    
     let place: GooglePlace
     
-    // 2
+    
     init(place: GooglePlace) {
         self.place = place
         super.init()
